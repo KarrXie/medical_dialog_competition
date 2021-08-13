@@ -18,7 +18,9 @@ entity预测模型训练：response_entity.py
     {'id': 'Doctor', 'Sentence': '您好，您的症状有多久了呢？', 'Symptom': [], 'Medicine': [], 'Test': [], 'Attribute': ['时长'], 'Disease': []},
     {'id': 'Doctor', 'Sentence': '平时，有没有反酸嗳气，大便情况怎么样？', 'Symptom': ['打嗝', '反流'], 'Medicine': [], 'Test': [], 'Attribute': [], 'Disease': []}]
 这段对话对应的entity预测逻辑为：
-    ![](./images/entity_predict.png)
+
+![entity_predict](./images/entity_predict.png)
+
  1. 模型采用roformer模型，主要原因是可以处理长文本数据，且效果优于NEZHA
  2. 第一句话中当患者对病情进行描述后，后两句都是医生的response，所以，给定第一句话后，预测医生response中的entity时，需要包含后两句中所有的entity。
  而给定第一句和第二句后，预测的entity应只包括第三句中的entity
@@ -26,7 +28,9 @@ entity预测模型训练：response_entity.py
  其中，D1表示给定第一句患者说的话，E2 和 E3 分别表示第二句话和第三句话中所含有的entity
  4. 多标签分类算法，采用 softmax+交叉熵。参考：https://spaces.ac.cn/archives/7359  同时，由于负样本占比太大，对其采用欠采样
 
- ### response generation预测逻辑
-   ![](./images/response_generation.png)
+### response generation预测逻辑
+
+![response_generation](./images/response_generation.png)
+
  1. response generation 采用word_roformer+UniLM模型，本来想尝试gpt模型，但时间原因，没来得及，后续会补上
  2. 一般而已，文本生成采用word-level效果会更好一些。参考：https://spaces.ac.cn/archives/7758
