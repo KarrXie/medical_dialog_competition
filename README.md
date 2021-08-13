@@ -24,7 +24,7 @@ entity预测模型训练：response_entity.py
  而给定第一句和第二句后，预测的entity应只包括第三句中的entity
  3. 虽然医生的response entity包含在了两个句子中，但是考虑句子先后，所以，在给定第一句话术后，预测entity时，限定P(E2|D1) > P(E3|D1),
  其中，D1表示给定第一句患者说的话，E2 和 E3 分别表示第二句话和第三句话中所含有的entity
- 4. 多标签分类算法，采用 softmax+交叉熵。参考：https://spaces.ac.cn/archives/7359。同时，由于负样本占比太大，对其采用欠采样
+ 4. 多标签分类算法，采用 softmax+交叉熵。参考：https://spaces.ac.cn/archives/7359  同时，由于负样本占比太大，对其采用欠采样
 
  ### response generation预测逻辑
     ![Image text](https://github.com/your_github/address/blob/master/image/1.png)
