@@ -14,10 +14,18 @@
 
 ## 模型逻辑
 ### entity预测逻辑
-以下列例子为例：
-    [{'id': 'Patient', 'Sentence': '胃部不适，第一天有痛感，后面就是胀，不拉肚子。就是胀气。请问是什么原因', 'Symptom': ['腹泻', '腹胀', '胃肠不适'], 'Medicine': [], 'Test': [], 'Attribute': [], 'Disease': []},
-    {'id': 'Doctor', 'Sentence': '您好，您的症状有多久了呢？', 'Symptom': [], 'Medicine': [], 'Test': [], 'Attribute': ['时长'], 'Disease': []},
-    {'id': 'Doctor', 'Sentence': '平时，有没有反酸嗳气，大便情况怎么样？', 'Symptom': ['打嗝', '反流'], 'Medicine': [], 'Test': [], 'Attribute': [], 'Disease': []}]
+以下列例子为例： [
+ - {'id': 'Patient', 'Sentence':
+   '胃部不适，第一天有痛感，后面就是胀，不拉肚子。就是胀气。请问是什么原因',
+   'Symptom': ['腹泻', '腹胀', '胃肠不适'], 'Medicine': [], 'Test': [],
+   'Attribute': [], 'Disease': []},
+ - {'id': 'Doctor', 'Sentence': '您好，您的症状有多久了呢？', 'Symptom':
+   [], 'Medicine': [], 'Test': [], 'Attribute': ['时长'], 'Disease':
+   []},
+-  {'id': 'Doctor', 'Sentence': '平时，有没有反酸嗳气，大便情况怎么样？',
+   'Symptom': ['打嗝', '反流'], 'Medicine': [], 'Test': [], 'Attribute':
+   [], 'Disease': []}]
+
 这段对话对应的entity预测逻辑为：
 
 ![entity_predict](./images/entity_predict.png)
@@ -36,3 +44,4 @@
 
 1. response generation 采用word_roformer+UniLM模型，本来想尝试gpt模型，但时间原因，没来得及，后续会补上
 2. 一般而已，文本生成采用word-level效果会更好一些。参考：https://spaces.ac.cn/archives/7758
+
